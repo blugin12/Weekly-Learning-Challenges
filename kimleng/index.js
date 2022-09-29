@@ -2451,3 +2451,99 @@
 // console.log(numbers(4))
 
 // # Given two numbers, return true if the sum of both numbers is less than 100. Otherwise return false.
+// function lessThan (a , b) {
+//     if (a + b < 100) {
+//         console.log(true);
+//     } else {
+//         console.log(false);
+//     }
+// }
+// lessThan(50,49);
+
+// # Create a function that takes an array of numbers and return both the minimum and
+// maximum number, in that order.
+// let minMaxValues = (arr) => {
+//     let maxValues;
+//     let minValues;
+//     for (let i = 0; i < arr.length; i++) {
+//         if(arr[i] < arr[1]) {
+//             minValues =arr [i];
+//         }
+//         if(arr[i] > arr[arr.length-2]){
+//             maxValues =arr[i];
+//         }
+//     }
+//     console.log(minValues ,maxValues);
+// }
+// minMaxValues([1, 2, 3, 4, 5]);
+
+// # Christmas Eve is almost upon is, so naturally we need to prepare some milk and 
+// cookies for Santa! Create a function that accepts a Date object and returns true if
+// it's Christmas Eve (December 24th) and false otherwise,
+// function timeForMilkAndCookies (dateToTest) {
+//     return (dateToTest.getFullYear()) &&
+//            (dateToTest.getMonth() === 11) &&
+//            (dateToTest.getDate() == 24);
+// }
+// console.log(timeForMilkAndCookies(new Date(2013, 11 ,24)));
+// console.log(timeForMilkAndCookies(new Date(2013, 0, 23))); 
+// console.log(timeForMilkAndCookies(new Date(3000, 11 ,24)));
+
+// # Create a function that returns true if the first array can be nested inside the second and false otherwise.
+// let canNest = (arr1 , arr2) => {
+//     if (Math.min(...arr1) > Math.min(...arr2) && Math.max(...arr1) < Math.max(...arr2)) {
+//         return true;
+//     } else return false;
+// };
+// console.log(canNest([1, 2, 3, 4], [0,6]));
+// console.log(canNest([3, 1], [4,0]));
+// console.log(canNest([9, 9, 8], [8, 9]));
+// console.log(canNest([1, 2, 3, 4], [2, 3]));
+
+// # Create a function that calculates the number N*N
+// function calcculate (a) {
+//     return `${a} * ${a}`;
+// }
+// console.log(calcculate(4));
+
+// #Assume that the following arry of drink objects needs to be sorted
+// function drink () {
+//     let drinks = [
+//         {name: "lemonade", price: 50},
+//         {name: "lime", price: 10}
+//     ];
+//     console.log(drinks);
+// }
+// drink();
+
+// # Write a function that takes a two-digit number and determines if 
+// it's the largest of two possible digit swaps.
+// function largestSwap (num) {
+//     num = num.toString();
+//     if (num < 0) {
+//         return num[1] <= num[2];
+//     } 
+//     return num[0] >= num[1];
+// }
+// console.log(largestSwap(43));
+
+// # Create a function that takes two numbers and a mathematical operator + - / * 
+// and will perform a calcuulation with the given numbers.
+// function calculates (a, b) {
+//     let calcu = {
+//         Plus: a + b,
+//         Minus: a - b,
+//         Multiply: a * b,
+//         divide: a / b
+//     }
+//     console.log(calcu);
+// }
+// calculates(1, 2);
+
+// # Create a function that's fetch data from this api: 'https://jsonplaceholder.typicode.com/todos/1'
+// async function work () {
+//     await fetch('https://jsonplaceholder.typicode.com/todos/1')
+//     .then(response => response.json())
+//     .then(json => console.log(json))
+// }
+// work();
