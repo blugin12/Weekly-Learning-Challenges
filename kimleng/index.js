@@ -2750,3 +2750,67 @@
 // foo.bar = 123; 
 // foo.baz = 'hello world'
 // console.log(foo);
+
+import { question } from "readline-sync";
+
+type operatior = '+' | '-' | "*" | '/' ;
+
+function main(): void
+{
+    const firststr: string = question('Enter first number number:\n');
+    const operator: string = question('Enter operatior:\n');
+    const secondstr: string = question('Enter second number\n');
+
+    const validInpput: boolean = isNumber(firststr) && isOperator(operator) && isNumber (secondstr);
+
+    if (validInpput)
+    {
+        const firstNum: number = parseInt(firststr);
+        const secondNum: number = parseInt(secondstr);
+        const result = calculate(firstNum, operator as operatior, secondNum);
+        console.log(result);
+    }
+    else
+    {
+        console.log('\ninvalid input\n');
+        main()
+    }
+}
+
+function calculate(firstNum: number, operatior: operatior, secondNum: number) 
+{
+    switch(operatior)
+    {
+        case '+':
+            return firstNum + secondNum;
+        case '-':
+            return firstNum - secondNum;
+        case '*':
+            return firstNum * secondNum;
+        case '/':
+            return firstNum / secondNum;
+    }
+}
+
+function isOperator(operatior: string): boolean
+{
+    switch(operatior)
+    {
+        case '+':
+        case '-':
+        case '*':
+        case '/':
+            return true;
+        default:
+            return false;
+    }
+}
+
+function isNumber(str: string): boolean
+{
+    const maybeNum = parseInt(str);
+    const isNum: boolean = !isNaN(maybeNum);
+    return isNum;
+}
+
+main();
