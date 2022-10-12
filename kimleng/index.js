@@ -2815,37 +2815,55 @@
 
 // main();
 
-import { Command } from 'commander';
-const program = new Command ();
+
+import commander, { Command } from "commander";
+const program = new Command();
+
+
+function myParseInt(value: string, dummyPrevious: any) {
+    const parsedValue = parseInt(value, 10);
+    if (isNaN(parsedValue)) {
+      throw new commander.InvalidArgumentError('Not a number.');
+    }
+    return parsedValue;
+  }
+
 
 program
- .command('add')
- .argument('<first>')
- .argument('<second>')
- .action((first, second) => {
-  console.log(`${first} + ${second} = ${first + second}`);
- });
+    .name('ts-t')
+    .description('Calculate command line')
+    .version('0.1.0')
 
 program
- .command('sub')
- .argument('<first>')
- .argument('<second>')
- .action((first, second) => {
-  console.log(`${first} - ${second} = ${first - second}`);
- });
+    .command('add')
+    .argument('<first>', 'integar argument', myParseInt )
+    .argument('[second]', 'integar argument', myParseInt)
+    .action((first, second) => {
+        console.log(`${first} + ${second} = ${first + second}`);
+    });
 
 program
- .command('mul')
- .argument('<first>')
- .argument('<second>')
- .action((first, second) => {
-  console.log(`${first} * ${second} = ${first * second}`);
- });
+    .command('sub')
+    .argument('<first>', 'integar argument', myParseInt)
+    .argument('[second]', 'integar argument', myParseInt)
+    .action((first, second) => {
+        console.log(`${first} - ${second} = ${first - second}`);
+    });
 
 program
- .command('div')
- .argument('<first>')
- .argument('<second>')
- .action((first, second) => {
-  console.log(`${first} / ${second} = ${first / second}`);
- });
+    .command('mul')
+    .argument('<first>', 'integar argument', myParseInt)
+    .argument('[second]', 'integar argument', myParseInt)
+    .action((first, second) => {
+        console.log(`${first} * ${second} = ${first * second}`);
+    });
+
+program
+    .command('div')
+    .argument('<first>', 'integar argument', myParseInt)
+    .argument('[second]', 'integar argument', myParseInt)
+    .action((first, second) => {
+        console.log(`${first} / ${second} = ${first / second}`);
+    });
+
+program.parse();
