@@ -2751,66 +2751,101 @@
 // foo.baz = 'hello world'
 // console.log(foo);
 
-import { question } from "readline-sync";
+// import { question } from "readline-sync";
 
-type operatior = '+' | '-' | "*" | '/' ;
+// type operatior = '+' | '-' | "*" | '/' ;
 
-function main(): void
-{
-    const firststr: string = question('Enter first number number:\n');
-    const operator: string = question('Enter operatior:\n');
-    const secondstr: string = question('Enter second number\n');
+// function main(): void
+// {
+//     const firststr: string = question('Enter first number number:\n');
+//     const operator: string = question('Enter operatior:\n');
+//     const secondstr: string = question('Enter second number\n');
 
-    const validInpput: boolean = isNumber(firststr) && isOperator(operator) && isNumber (secondstr);
+//     const validInpput: boolean = isNumber(firststr) && isOperator(operator) && isNumber (secondstr);
 
-    if (validInpput)
-    {
-        const firstNum: number = parseInt(firststr);
-        const secondNum: number = parseInt(secondstr);
-        const result = calculate(firstNum, operator as operatior, secondNum);
-        console.log(result);
-    }
-    else
-    {
-        console.log('\ninvalid input\n');
-        main()
-    }
-}
+//     if (validInpput)
+//     {
+//         const firstNum: number = parseInt(firststr);
+//         const secondNum: number = parseInt(secondstr);
+//         const result = calculate(firstNum, operator as operatior, secondNum);
+//         console.log(result);
+//     }
+//     else
+//     {
+//         console.log('\ninvalid input\n');
+//         main()
+//     }
+// }
 
-function calculate(firstNum: number, operatior: operatior, secondNum: number) 
-{
-    switch(operatior)
-    {
-        case '+':
-            return firstNum + secondNum;
-        case '-':
-            return firstNum - secondNum;
-        case '*':
-            return firstNum * secondNum;
-        case '/':
-            return firstNum / secondNum;
-    }
-}
+// function calculate(firstNum: number, operatior: operatior, secondNum: number) 
+// {
+//     switch(operatior)
+//     {
+//         case '+':
+//             return firstNum + secondNum;
+//         case '-':
+//             return firstNum - secondNum;
+//         case '*':
+//             return firstNum * secondNum;
+//         case '/':
+//             return firstNum / secondNum;
+//     }
+// }
 
-function isOperator(operatior: string): boolean
-{
-    switch(operatior)
-    {
-        case '+':
-        case '-':
-        case '*':
-        case '/':
-            return true;
-        default:
-            return false;
-    }
-}
+// function isOperator(operatior: string): boolean
+// {
+//     switch(operatior)
+//     {
+//         case '+':
+//         case '-':
+//         case '*':
+//         case '/':
+//             return true;
+//         default:
+//             return false;
+//     }
+// }
 
-function isNumber(str: string): boolean
-{
-    const maybeNum = parseInt(str);
-    const isNum: boolean = !isNaN(maybeNum);
-    return isNum;
-}
+// function isNumber(str: string): boolean
+// {
+//     const maybeNum = parseInt(str);
+//     const isNum: boolean = !isNaN(maybeNum);
+//     return isNum;
+// }
 
-main();
+// main();
+
+import { Command } from 'commander';
+const program = new Command ();
+
+program
+ .command('add')
+ .argument('<first>')
+ .argument('<second>')
+ .action((first, second) => {
+  console.log(`${first} + ${second} = ${first + second}`);
+ });
+
+program
+ .command('sub')
+ .argument('<first>')
+ .argument('<second>')
+ .action((first, second) => {
+  console.log(`${first} - ${second} = ${first - second}`);
+ });
+
+program
+ .command('mul')
+ .argument('<first>')
+ .argument('<second>')
+ .action((first, second) => {
+  console.log(`${first} * ${second} = ${first * second}`);
+ });
+
+program
+ .command('div')
+ .argument('<first>')
+ .argument('<second>')
+ .action((first, second) => {
+  console.log(`${first} / ${second} = ${first / second}`);
+ });
